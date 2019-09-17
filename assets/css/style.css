@@ -1,10 +1,22 @@
-.col-10{
+.col-6{
     text-align: center;
+    background-color: white;
+    height:601px;
 }
 .title{
-    text-align: center;
-    margin: 0px;
+    text-align: center; 
+    justify-content: center;
 }
+body{
+    background-image:url(../images/background.jpg);
+}
+button{
+    margin-bottom: 20px;
+}
+#first{margin-bottom:20px;margin-top:20px;}
+#donebutton{margin-top:20px;}
+#mainrow{display:flex;justify-content: center;}
+
 /*
 background image
 h2 blue text

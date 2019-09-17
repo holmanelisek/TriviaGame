@@ -30,7 +30,7 @@ $(document).ready(function() {
 
     //when done button is clicked, run done function
     $("#donebutton").click(function(){
-        doneFunction();
+        if(start){doneFunction();}
     })
 
 
@@ -38,6 +38,7 @@ $(document).ready(function() {
     //done function compares answers and shows correct, incorrect and unanswered questions
     function doneFunction(){
         done=true;
+        start=false;
         for(i=0;i<correctAnswers.length;i++){
             if(correctAnswers[i]===userAnswers[i]){
                 correct++;
@@ -45,7 +46,8 @@ $(document).ready(function() {
                 incorrect++;
             }
         }
-        $(".away").html("");
+        unanswered = 5 - userAnswers.length;
+        $(".away").html(" ");
         $("#final1").html("Correctly Answered: "+correct);
         $("#final2").html("Incorrectly Answered: "+incorrect);
         $("#final3").html("Unanswered: "+unanswered);
@@ -77,7 +79,7 @@ $(document).ready(function() {
     function clickedAnswer(x,answer){
         if(start){
             userAnswers[x] = answer;
-            unanswered--;}
+            }
         
     }
 
