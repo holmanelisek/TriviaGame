@@ -15,7 +15,10 @@ $(document).ready(function() {
     })
 
     //when done button is clicked, run done function
-    $("#donebutton").click(doneFunction());
+    $("#donebutton").click(function(){
+        doneFunction();
+    })
+
 
     //done function compares answers and shows correct, incorrect and unanswered questions
     function doneFunction(){
@@ -47,12 +50,13 @@ $(document).ready(function() {
 
     //if time runs out, done = true
     function timeCheck(){
-        if(secondsLeft>0){
-            done = false;
-        } else{
-            done = true;
-        }
-    }
+        if(done===false){
+            if(secondsLeft>0){
+                done = false;
+            } else{
+                done = true;
+            }
+    }}
 
     //add the variable answer to the array userAnswers at the index of x
     function clickedAnswer(x, answer){
