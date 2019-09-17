@@ -17,32 +17,39 @@
             <div class="row title">
                 <h2>Trivia Game</h2>
             </div>
+            <!--row containing the start button, which shifts to a time counter when clicked-->
             <div class="row"><div class="col" id="time"><button id="start">Start</button></div></div>
-            <div class="row"><div class="col" id="final1">1</div></div>
+            <!--first question-->
+            <div class="row"><div class="col" id="final1">A group of dolphins is called a pod.</div></div>
             <div class="row"><div class="col answers" id="final2">
-                <button onclick="clickedAnswer(0,true)">True</button>
-                <button onclick="clickedAnswer(0,false)">False</button>
+                <button id="one">True</button>
+                <button id="two">False</button>
             </div></div>
-            <div class="row"><div class="col" id="final3">2</div></div>
+            <!--second question-->
+            <div class="row"><div class="col" id="final3">97 is a prime number.</div></div>
             <div class="row"><div class="col answers away">
-                    <button onclick="clickedAnswer(1,true)">True</button>
-                    <button onclick="clickedAnswer(1,false)">False</button>
+                    <button id="three">True</button>
+                    <button id="four">False</button>
                 </div></div>
-            <div class="row"><div class="col away">3</div></div>
+            <!--third question-->
+            <div class="row"><div class="col away">The python is a poisonous snake.</div></div>
             <div class="row"><div class="col answers away">
-                    <button onclick="clickedAnswer(2,true)">True</button>
-                    <button onclick="clickedAnswer(2,false)">False</button>
+                    <button id="five">True</button>
+                    <button id="six">False</button>
                 </div></div>
-            <div class="row"><div class="col away">4</div></div>
+            <!--fourth question-->
+            <div class="row"><div class="col away">Andromeda is the closest star to Earth.</div></div>
             <div class="row"><div class="col answers away">
-                    <button onclick="clickedAnswer(3,true)">True</button>
-                    <button onclick="clickedAnswer(3,false)">False</button>
+                    <button id="seven">True</button>
+                    <button id="eight">False</button>
                 </div></div>
-            <div class="row"><div class="col away">5</div></div>
+            <!--fifth question, written especially because Jonathon doesn't like LOTR-->
+            <div class="row"><div class="col away">Aragorn, son of Arathorn, is the first to be crowned both king of Arnor and Gonder.</div></div>
             <div class="row"><div class="col answers away">
-                    <button onclick="clickedAnswer(4,true)">True</button>
-                    <button onclick="clickedAnswer(4,false)">False</button>
+                    <button id="nine">True</button>
+                    <button id="ten">False</button>
                 </div></div>
+            <!--"done" button to stop timer-->
             <div class="row"><div class="col away"><button id="donebutton">Done</button></div></div>
         </div>
     </div>

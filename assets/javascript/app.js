@@ -1,12 +1,26 @@
 $(document).ready(function() {
     var secondsLeft = 300;
-    var correctAnswers = [];
-    var userAnswers = ["","","","",""];
+    var correctAnswers = [true,true,false,false,false];
+    var userAnswers = [];
     var correct = 0;
     var incorrect = 0;
     var unanswered =5;
     var start = false;
     var done = false;
+    
+    //click/event listeners for the response buttons
+
+    $("#one").click(function(){clickedAnswer(0,true);})
+    $("#two").click(function(){clickedAnswer(0,false);})
+    $("#three").click(function(){clickedAnswer(1,true);})
+    $("#four").click(function(){clickedAnswer(1,false);})
+    $("#five").click(function(){clickedAnswer(2,true);})
+    $("#six").click(function(){clickedAnswer(2,false);})
+    $("#seven").click(function(){clickedAnswer(3,true);})
+    $("#eight").click(function(){clickedAnswer(3,false);})
+    $("#nine").click(function(){clickedAnswer(4,true);})
+    $("#ten").click(function(){clickedAnswer(4,false);})
+
 
     //when start button is clicked, update the time id to Time Remaining: 300 and update start variable to true and set
     $("#start").click(function(){
@@ -20,10 +34,11 @@ $(document).ready(function() {
     })
 
 
+
     //done function compares answers and shows correct, incorrect and unanswered questions
     function doneFunction(){
         done=true;
-        for(i=0;i++;i<correctAnswers.length){
+        for(i=0;i<correctAnswers.length;i++){
             if(correctAnswers[i]===userAnswers[i]){
                 correct++;
             }else{
@@ -59,9 +74,11 @@ $(document).ready(function() {
     }}
 
     //add the variable answer to the array userAnswers at the index of x
-    function clickedAnswer(x, answer){
-        userAnswers[x] = answer;
-        unanswered--;
+    function clickedAnswer(x,answer){
+        if(start){
+            userAnswers[x] = answer;
+            unanswered--;}
+        
     }
 
     //
