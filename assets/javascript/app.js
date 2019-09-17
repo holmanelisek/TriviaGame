@@ -1,34 +1,69 @@
 $(document).ready(function() {
-    var secondsLeft = 30;
+    var secondsLeft = 300;
     var correctAnswers = [];
     var userAnswers = ["","","","",""];
     var correct = 0;
     var incorrect = 0;
-    var answers=0;
+    var unanswered =5;
+    var start = false;
+    var done = false;
 
-    //every 1000 milliseconds, subtract 1 from the variable secondsLeft and update the display
-    setInterval(function(){
-        secondsLeft = secondsLeft-1;
-        //update inner html of timer
-        if(secondsLeft=0 && answers<5){
-            //kill switch! you gotta be done now bud
+    //when start button is clicked, update the time id to Time Remaining: 300 and update start variable to true and set
+    $("#start").click(function(){
+        start = true;
+        $("#time").html("Time Remaining: 300")
+    })
+
+    //when done button is clicked, run done function
+    $("#donebutton").click(doneFunction());
+
+    //done function compares answers and shows correct, incorrect and unanswered questions
+    function doneFunction(){
+        done=true;
+        for(i=0;i++;i<correctAnswers.length){
+            if(correctAnswers[i]===userAnswers[i]){
+                correct++;
+            }else{
+                incorrect++;
+            }
         }
+        $(".away").html("");
+        $("#final1").html("Correctly Answered: "+correct);
+        $("#final2").html("Incorrectly Answered: "+incorrect);
+        $("#final3").html("Unanswered: "+unanswered);
+    }
+
+    //every 1000 milliseconds, subtract 1 from the variable secondsLeft and update the display (if start has been clicked).
+    setInterval(function(){
+        if(start){
+        secondsLeft--;
+        timeCheck();
+        if(done){
+            doneFunction();
+        } else{
+            $("#time").html("Time Remaining: "+secondsLeft);
+        }}
     }, 1000)
+
+    //if time runs out, done = true
+    function timeCheck(){
+        if(secondsLeft>0){
+            done = false;
+        } else{
+            done = true;
+        }
+    }
 
     //add the variable answer to the array userAnswers at the index of x
     function clickedAnswer(x, answer){
         userAnswers[x] = answer;
-        answered++;
-        //edit appearance?
-        if(answered=5){
-            //all done! stop timer! run comparison!
-        }
+        unanswered--;
     }
 
     //
     
 
-}
+})
 
 //timer
 //update inner html of timer
